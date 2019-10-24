@@ -16,10 +16,9 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
-    public int _jumpCount = 0;
+    private bool _isDoubleJumpUsed = false;
 
     private Animator _animator;
-
     private Rigidbody2D _rigidBody;
 
     // Start is called before the first frame update
@@ -54,18 +53,18 @@ public class PlayerController : MonoBehaviour
         }
 
         if (Input.GetKeyDown(jump))
-        {
-            _jumpCount++;
-
-            if (_jumpCount < 2)
+        {         
+            if (!_isDoubleJumpUsed)
             {
                 _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, jumpForce);
-            }                  
+            }
+
+            _isDoubleJumpUsed = true;
         }
 
         if (isGrounded)
         {
-            _jumpCount = 0;
+            _isDoubleJumpUsed = false;
         }
     }
 
@@ -83,5 +82,7 @@ public class PlayerController : MonoBehaviour
 
         _animator.SetFloat("Speed", Mathf.Abs(_rigidBody.velocity.x));
         _animator.SetBool("Grounded", isGrounded);
+        _animator.SetBool("Double Jump", _isDoubleJumpUsed);
+        _animator.SetBool("Falling", _rigidBody.velocity.y < 0);
     }
 }
