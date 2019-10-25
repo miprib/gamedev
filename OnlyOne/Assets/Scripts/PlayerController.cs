@@ -92,6 +92,12 @@ public class PlayerController : MonoBehaviour
         }       
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        UnityEngine.Debug.Log("Colision started");
+    }
+
+
     private void HandleJumpOnPlayer()
     {
         // Player must be falling and at least one foot has to make contact
