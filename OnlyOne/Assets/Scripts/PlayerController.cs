@@ -15,18 +15,22 @@ public class PlayerController : MonoBehaviour
     public KeyCode jump;
     // TODO: Add more controlls
 
-    public Transform groundCheckPoint;
+    public Transform groundCheckPoint1;
+    public Transform groundCheckPoint2;
     public bool isGrounded;
+    public bool isOnPlayer;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
-    public bool _isDoubleJumpUsed = false;
-    private bool _isHit = false;
+    public LayerMask whatIsOtherPlayer;
+    private bool _isDoubleJumpUsed = false;
+    public int stunTimeMs;
+    public bool isHit = false;
+    public bool isRed;
+    public bool isBlue;
 
     private Animator _animator;
     private Rigidbody2D _rigidBody;
     private Stopwatch _stopwatch;
-
-    public bool swRunning;
 
     // Start is called before the first frame update
     public void Start()
@@ -44,13 +48,16 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleAnimation();
+        HandleHit();
+        HandleJumpOnPlayer();
     }
 
     private void HandleMovement()
     {
-
-        swRunning = _stopwatch.IsRunning;
-        isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, whatIsGround);
+        isGrounded =
+            Physics2D.OverlapCircle(groundCheckPoint1.position, groundCheckRadius, whatIsGround)
+            ||
+            Physics2D.OverlapCircle(groundCheckPoint2.position, groundCheckRadius, whatIsGround);
 
         if (Input.GetKey(left))
         {
@@ -67,37 +74,57 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(jump))
         {         
-            if (!_isDoubleJumpUsed)
+            if (!_isDoubleJumpUsed && isGrounded)
             {
                 _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, jumpForce);
             }
 
-            if (!isGrounded) 
-            { 
+            if (!_isDoubleJumpUsed && !isGrounded) 
+            {
+                _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, jumpForce);
                 _isDoubleJumpUsed = true; 
             }
         }
 
         if (isGrounded)
-        {
-            _isHit = (_isDoubleJumpUsed) ? true : false; // This is temporary
+        {           
             _isDoubleJumpUsed = false;
-        }
+        }       
+    }
 
-        HandleHit();
+    private void HandleJumpOnPlayer()
+    {
+        // Player must be falling and at least one foot has to make contact
+        isOnPlayer =
+            (
+                Physics2D.OverlapCircle(groundCheckPoint1.position, groundCheckRadius, whatIsOtherPlayer)
+                ||
+                Physics2D.OverlapCircle(groundCheckPoint2.position, groundCheckRadius, whatIsOtherPlayer)
+            )
+            &&
+            _rigidBody.velocity.y < 0;
+
+        if (isOnPlayer)
+        {         
+            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, jumpForce * 1.3f);
+        }
     }
 
     private void HandleHit()
     {
-        if (_isHit)
+        isHit = (_isDoubleJumpUsed && isGrounded) ? true : false; // This is temporary
+
+        if (isHit)
         {
+            isHit = false;
+
             movementSpeed = 0;
             jumpForce = 0;
 
             _stopwatch.Start();
         }
 
-        if (_stopwatch.IsRunning && _stopwatch.ElapsedMilliseconds > 1500)
+        if (_stopwatch.IsRunning && _stopwatch.ElapsedMilliseconds > stunTimeMs)
         {
             _stopwatch.Reset();
 
@@ -122,6 +149,6 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("Grounded", isGrounded);
         _animator.SetBool("Double Jump", _isDoubleJumpUsed);
         _animator.SetBool("Falling", _rigidBody.velocity.y < 0);
-        _animator.SetBool("Hit", _isHit);
+        _animator.SetBool("Hit", isHit);
     }
 }
