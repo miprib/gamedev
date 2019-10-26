@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode left;
     public KeyCode right;
     public KeyCode jump;
+    public KeyCode bananaThrow;
     // TODO: Add more controlls
 
     public Transform groundCheckPoint1;
@@ -32,6 +33,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private Stopwatch _stopwatch;
 
+    public GameObject banana;
+    public Transform throwPoint;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -50,6 +54,7 @@ public class PlayerController : MonoBehaviour
         HandleAnimation();
         HandleHit();
         HandleJumpOnPlayer();
+        HandleBananaThrow();
     }
 
     private void HandleMovement()
@@ -156,5 +161,15 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("Double Jump", _isDoubleJumpUsed);
         _animator.SetBool("Falling", _rigidBody.velocity.y < 0);
         _animator.SetBool("Hit", isHit);
+    }
+
+    private void HandleBananaThrow()
+    {
+        if (Input.GetKeyDown(bananaThrow))
+        {
+            GameObject bananaClone = (GameObject) Instantiate(banana, throwPoint.position, throwPoint.rotation);
+            bananaClone.transform.localScale = transform.localScale;
+            // TODO trigger throw animation
+        }
     }
 }
