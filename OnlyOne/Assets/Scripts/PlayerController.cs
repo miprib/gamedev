@@ -123,8 +123,6 @@ public class PlayerController : MonoBehaviour
 
     private void HandleHit()
     {
-        isHit = (_isDoubleJumpUsed && isGrounded) ? true : false; // This is temporary
-
         if (isHit)
         {
             isHit = false;
@@ -159,7 +157,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat("Speed", Mathf.Abs(_rigidBody.velocity.x));
         _animator.SetBool("Grounded", isGrounded);
         _animator.SetBool("Double Jump", _isDoubleJumpUsed);
-        _animator.SetBool("Falling", _rigidBody.velocity.y < 0);
+        _animator.SetBool("Falling", _rigidBody.velocity.y < 0 && !isGrounded);
         _animator.SetBool("Hit", isHit);
     }
 
