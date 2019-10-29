@@ -66,11 +66,23 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(left))
         {
+            if (!_stopwatch.IsRunning && isGrounded)
+            {
+                SoundManagerScript.PlaySound("walk");
+            }
             _rigidBody.velocity = new Vector2(-movementSpeed, _rigidBody.velocity.y);
         }
         else if (Input.GetKey(right))
         {
+            if (!_stopwatch.IsRunning && isGrounded)
+            {
+                SoundManagerScript.PlaySound("walk");
+            }
             _rigidBody.velocity = new Vector2(movementSpeed, _rigidBody.velocity.y);
+        }
+        else if(Input.GetKeyUp(left) || Input.GetKeyUp(right))
+        {
+            SoundManagerScript.PlaySound("stopWalk");
         }
         else // Prevent sliding once key is released
         {
@@ -78,14 +90,17 @@ public class PlayerController : MonoBehaviour
         }
 
         if (Input.GetKeyDown(jump))
-        {         
+        {
+
             if (!_isDoubleJumpUsed && isGrounded)
             {
+                SoundManagerScript.PlaySound("jump");
                 _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, jumpForce);
             }
 
             if (!_isDoubleJumpUsed && !isGrounded) 
             {
+                SoundManagerScript.PlaySound("jump");
                 _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, jumpForce);
                 _isDoubleJumpUsed = true; 
             }
@@ -116,7 +131,8 @@ public class PlayerController : MonoBehaviour
             _rigidBody.velocity.y < 0;
 
         if (isOnPlayer)
-        {         
+        {
+            SoundManagerScript.PlaySound("jump");
             _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, jumpForce * 1.3f);
         }
     }
@@ -125,8 +141,10 @@ public class PlayerController : MonoBehaviour
     {
         if (isHit)
         {
-            isHit = false;
+            SoundManagerScript.PlaySound("playerHit");
+            SoundManagerScript.PlaySound("stopWalk");
 
+            isHit = false;
             movementSpeed = 0;
             jumpForce = 0;
 
@@ -165,6 +183,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(bananaThrow))
         {
+            SoundManagerScript.PlaySound("fire");
+
             GameObject bananaClone = (GameObject) Instantiate(banana, throwPoint.position, throwPoint.rotation);
             bananaClone.transform.localScale = transform.localScale;
             // TODO trigger throw animation
