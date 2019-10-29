@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2055219643711217390}
   m_Layer: 8
   m_Name: MaskDude
-  m_TagString: Untagged
+  m_TagString: RedPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
   left: 97
   right: 100
   jump: 119
+  bananaThrow: 101
   groundCheckPoint1: {fileID: 2055219642574149686}
   groundCheckPoint2: {fileID: 4691012148192649873}
   isGrounded: 0
@@ -147,8 +148,10 @@ MonoBehaviour:
     m_Bits: 512
   stunTimeMs: 1000
   isHit: 0
-  isRed: 0
+  isRed: 1
   isBlue: 0
+  banana: {fileID: 6499597962223236361, guid: 1fc335d1013421740b24aeb77279629c, type: 3}
+  throwPoint: {fileID: 1538478133204370140}
 --- !u!61 &2055219643711217384
 BoxCollider2D:
   m_ObjectHideFlags: 0
