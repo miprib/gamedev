@@ -5,8 +5,8 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour
 {
     static AudioSource[] audioSrcArr;
-    static AudioSource actionAudioSrc, jumpAudioSrc, walkAudioSrc;
-    public static AudioClip playerHitSound, walkSound, fireSound, jumpSound;
+    static AudioSource actionAudioSrc, jumpAudioSrc, walkAudioSrc, collectableAurdioSrc;
+    public static AudioClip playerHitSound, walkSound, fireSound, jumpSound, collectableSound;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,7 @@ public class SoundManagerScript : MonoBehaviour
         walkSound = Resources.Load<AudioClip>("FOOTSTEPS (A) Walking Loop 01");
         fireSound = Resources.Load<AudioClip>("SWIPE Whoosh Double 01");
         jumpSound = Resources.Load<AudioClip>("BOUNCE Twang Spring 13");
+        collectableSound = Resources.Load<AudioClip>("COINS Collect Jackpot Win 03");
     }
 
     // Update is called once per frame
@@ -59,6 +60,9 @@ public class SoundManagerScript : MonoBehaviour
                 {
                     walkAudioSrc.Stop();
                 }
+                break;
+            case "collectable":
+                actionAudioSrc.PlayOneShot(collectableSound);
                 break;
         }
     }
