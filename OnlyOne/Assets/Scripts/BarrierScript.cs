@@ -9,17 +9,7 @@ public class BarrierScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        Debug.Log("Script started");
-    }
-
-    //     private void OnTriggerEnter2D(Collider2D collider)
-    // {
-    //     if(collider.tag == playerWhoCannotPass.tag) {
-
-    //         //playerWhoCannotPass.position
-    //     }
-    // }
+    { }
 
         void OnCollisionEnter2D(Collision2D collision)
     {
