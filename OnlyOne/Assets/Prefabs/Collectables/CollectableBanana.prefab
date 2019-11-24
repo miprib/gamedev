@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19934466e50160b428261aa8a49c371b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bananaCollectedParticles: {fileID: 957079374099107437, guid: 659f1fc24a5881c449413ee205ccc4c7,
+  bananaCollectedParticles: {fileID: 5657701171851085230, guid: d02153dfff7751d44beb4a6e4321fb55,
     type: 3}
 --- !u!50 &3207899715706684563
 Rigidbody2D:
