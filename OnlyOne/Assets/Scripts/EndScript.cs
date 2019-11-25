@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndScript : MonoBehaviour
 {
@@ -17,11 +18,15 @@ public class EndScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == redPlayer.tag ) {
+            ProgressInformation.winnerPlayerTag = redPlayer.tag.ToString();
+            SceneManager.LoadScene("WinningScene");
             Debug.Log("Red won");
         }
 
         if (collision.gameObject.tag == bluePlayer.tag)
         {
+            ProgressInformation.winnerPlayerTag = bluePlayer.tag.ToString();
+            SceneManager.LoadScene("WinningScene");
             Debug.Log("Blue won");
         }
     }
