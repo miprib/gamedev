@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode right;
     public KeyCode jump;
     public KeyCode bananaThrow;
+    public KeyCode restartMap;
     // TODO: Add more controlls
 
     public Transform groundCheckPoint1;
@@ -50,11 +52,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        HandleRestartMap();
         HandleMovement();
         HandleAnimation();
         HandleHit();
         HandleJumpOnPlayer();
         HandleBananaThrow();
+    }
+
+    private void HandleRestartMap() {
+        if (Input.GetKeyDown(restartMap)) {
+            SceneManager.LoadScene("SampleScene");
+     }
     }
 
     private void HandleMovement()
