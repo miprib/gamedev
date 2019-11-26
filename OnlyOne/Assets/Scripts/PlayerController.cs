@@ -28,8 +28,10 @@ public class PlayerController : MonoBehaviour
     private bool _isDoubleJumpUsed = false;
     public int stunTimeMs;
     public bool isHit = false;
+    public bool addBanana = false;
     public bool isRed;
     public bool isBlue;
+    public int bananaCount;
 
     private Animator _animator;
     private Rigidbody2D _rigidBody;
@@ -37,10 +39,13 @@ public class PlayerController : MonoBehaviour
 
     public GameObject banana;
     public Transform throwPoint;
+    public GameObject bananaInventory;
 
     // Start is called before the first frame update
     public void Start()
     {
+        bananaInventory.SetActive(false);
+
         _initialMovementSpeed = movementSpeed;
         _initialJumpForce = jumpForce;
 
@@ -58,6 +63,7 @@ public class PlayerController : MonoBehaviour
         HandleHit();
         HandleJumpOnPlayer();
         HandleBananaThrow();
+        HandleBananaAdd();
     }
 
     private void HandleRestartMap() {
@@ -192,11 +198,28 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(bananaThrow))
         {
-            SoundManagerScript.PlaySound("fire");
+            if (bananaCount != 0)
+            {
+                SoundManagerScript.PlaySound("fire");
+                bananaCount--;
+                GameObject bananaClone = (GameObject)Instantiate(banana, throwPoint.position, throwPoint.rotation);
+                bananaClone.transform.localScale = transform.localScale;
+                bananaInventory.SetActive(false);
+                // TODO trigger throw animation
+            }
+        }
+    }
 
-            GameObject bananaClone = (GameObject) Instantiate(banana, throwPoint.position, throwPoint.rotation);
-            bananaClone.transform.localScale = transform.localScale;
-            // TODO trigger throw animation
+    private void HandleBananaAdd()
+    {
+        if (addBanana)
+        {
+            if (bananaCount < 1)
+            {
+                bananaCount++;
+                bananaInventory.SetActive(true);
+            }            
+            addBanana = false;
         }
     }
 }

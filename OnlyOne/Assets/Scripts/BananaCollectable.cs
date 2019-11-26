@@ -23,18 +23,36 @@ public class BananaCollectable : MonoBehaviour
         if (other.tag == "RedPlayer")
         {
             Debug.Log("Red took the banana");
-            BananaWasCollected();
+            BananaWasCollected(true);
         }
 
         if(other.tag == "BluePlayer") {
             Debug.Log("Blue took the banana");
-            BananaWasCollected();
+            BananaWasCollected(false);
         }   
     }
 
-    private void BananaWasCollected() {
+    private void BananaWasCollected(bool isRed) {
         SoundManagerScript.PlaySound("collectable");
         Instantiate(bananaCollectedParticles, transform.position, transform.rotation);
         Destroy(gameObject);
+
+        Object[] players = FindObjectsOfType<PlayerController>();
+        Debug.Log(players + " : " + players.Length);
+        Debug.Log("isRed : " + isRed);
+        foreach (PlayerController player in players)
+        {
+            Debug.Log(player + " isRed : " + player.isRed);
+            Debug.Log(player + " isBlue : " + player.isBlue);
+            if (player.isRed && isRed)
+            {
+                player.addBanana = true;
+            }
+
+            if (player.isBlue && !isRed)
+            {
+                player.addBanana = true;
+            }
+        }
     }
 }

@@ -1325,12 +1325,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1879476251}
+  - {fileID: 1214076556}
   - {fileID: 264980982}
   - {fileID: 2092580053}
   - {fileID: 373173534}
   - {fileID: 1188988408}
   - {fileID: 1451715676}
-  - {fileID: 1214076556}
   - {fileID: 331240194}
   - {fileID: 10508496}
   - {fileID: 1964487362}
@@ -3158,7 +3158,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 124647684}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &264980983
 SpriteRenderer:
@@ -4743,7 +4743,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 124647684}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &373173535
 SpriteRenderer:
@@ -13648,7 +13648,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 124647684}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1188988409
 SpriteRenderer:
@@ -14387,7 +14387,7 @@ GameObject:
   - component: {fileID: 1214076556}
   - component: {fileID: 1214076557}
   m_Layer: 0
-  m_Name: Bananas_0 (1)
+  m_Name: BlueBanana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14401,11 +14401,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214076555}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.95, y: 1.721, z: -4}
+  m_LocalPosition: {x: -8.949999, y: 1.7209997, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 124647684}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1214076557
 SpriteRenderer:
@@ -16779,7 +16779,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 124647684}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1451715677
 SpriteRenderer:
@@ -21437,7 +21437,7 @@ GameObject:
   - component: {fileID: 1879476251}
   - component: {fileID: 1879476252}
   m_Layer: 0
-  m_Name: Bananas_0
+  m_Name: RedBanana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21451,7 +21451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879476250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.214, y: 1.721, z: -4}
+  m_LocalPosition: {x: 16.214, y: 1.7209997, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 124647684}
@@ -23835,7 +23835,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 124647684}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2092580054
 SpriteRenderer:
@@ -24410,7 +24410,7 @@ PrefabInstance:
     - target: {fileID: 2055219643711217387, guid: 9598e2bba68a9f24db70609b5aa6e5de,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2055219643711217387, guid: 9598e2bba68a9f24db70609b5aa6e5de,
         type: 3}
@@ -24437,6 +24437,16 @@ PrefabInstance:
       propertyPath: restartMap
       value: 109
       objectReference: {fileID: 0}
+    - target: {fileID: 2055219643711217385, guid: 9598e2bba68a9f24db70609b5aa6e5de,
+        type: 3}
+      propertyPath: bananaCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055219643711217385, guid: 9598e2bba68a9f24db70609b5aa6e5de,
+        type: 3}
+      propertyPath: bananaInventory
+      value: 
+      objectReference: {fileID: 1879476250}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9598e2bba68a9f24db70609b5aa6e5de, type: 3}
 --- !u!4 &2055219642828308341 stripped
@@ -24790,7 +24800,7 @@ PrefabInstance:
     - target: {fileID: 7053626110386476005, guid: aab1c6a51c098514bb7e2fca5ab658bc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7053626110386476005, guid: aab1c6a51c098514bb7e2fca5ab658bc,
         type: 3}
@@ -24817,5 +24827,15 @@ PrefabInstance:
       propertyPath: restartMap
       value: 269
       objectReference: {fileID: 0}
+    - target: {fileID: 7053626110386476007, guid: aab1c6a51c098514bb7e2fca5ab658bc,
+        type: 3}
+      propertyPath: bananaCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053626110386476007, guid: aab1c6a51c098514bb7e2fca5ab658bc,
+        type: 3}
+      propertyPath: bananaInventory
+      value: 
+      objectReference: {fileID: 1214076555}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aab1c6a51c098514bb7e2fca5ab658bc, type: 3}

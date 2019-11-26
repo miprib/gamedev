@@ -135,6 +135,7 @@ MonoBehaviour:
   right: 100
   jump: 119
   bananaThrow: 101
+  restartMap: 0
   groundCheckPoint1: {fileID: 2055219642574149686}
   groundCheckPoint2: {fileID: 4691012148192649873}
   isGrounded: 0
@@ -150,6 +151,7 @@ MonoBehaviour:
   isHit: 0
   isRed: 1
   isBlue: 0
+  bananaCount: 5
   banana: {fileID: 6499597962223236361, guid: 1fc335d1013421740b24aeb77279629c, type: 3}
   throwPoint: {fileID: 1538478133204370140}
 --- !u!61 &2055219643711217384
