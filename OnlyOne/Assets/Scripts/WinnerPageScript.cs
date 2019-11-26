@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WinnerPageScript : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class WinnerPageScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MainMenu");
             Debug.Log("Open main menu");
         }
     }
