@@ -2092,12 +2092,12 @@ PrefabInstance:
     - target: {fileID: 8786787019098445362, guid: a4fcd7650f17dbc48a1b910c7c4119cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.67
+      value: 5.2
       objectReference: {fileID: 0}
     - target: {fileID: 8786787019098445362, guid: a4fcd7650f17dbc48a1b910c7c4119cf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.48
+      value: 19.19
       objectReference: {fileID: 0}
     - target: {fileID: 8786787019098445362, guid: a4fcd7650f17dbc48a1b910c7c4119cf,
         type: 3}
@@ -6485,6 +6485,51 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55ff6477b2daeb54ca2a805f9c42758d, type: 3}
+--- !u!1 &494708040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 494708042}
+  - component: {fileID: 494708041}
+  m_Layer: 0
+  m_Name: BananaFallPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &494708041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494708040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd7b74be10df5c459f406f1c8b2568a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 30
+  collectableBanana: {fileID: 1437126492}
+--- !u!4 &494708042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494708040}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.27, y: 20.58, z: -4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &495775064
 GameObject:
   m_ObjectHideFlags: 0
@@ -17598,6 +17643,12 @@ Transform:
   m_Father: {fileID: 1702869275}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1437126492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8786787019098445360, guid: a4fcd7650f17dbc48a1b910c7c4119cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 197035793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1437412614
 GameObject:
   m_ObjectHideFlags: 0
