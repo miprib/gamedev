@@ -257,11 +257,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u017Daid\u0117jai valdomi ta pa\u010Dia klaviat\u016Bra. 1-aojo \u017Eaid\u0117jo
     (raudona spalva) judesiai valdomi WASD klavi\u0161ais, o 2-ojo (m\u0117lyna spalva)
-    atitinkamai numpad esan\u010Diais klavi\u0161ais 8456.\n\u017Daidim\u0105 sudaro
-    5 lygiai. Kiekvienas \u017Eaid\u0117jas siekia pereiti didesn\u0119 dal\u012F
-    \u017Eaidimo lygi\u0173. Nugal\u0117tojas gauna laim\u0117s akmen\u012F, o pastar\u0105j\u012F
-    gr\u0105\u017Einus vietos verslininkui - pa\u017Ead\u0117t\u0105 pinigin\u012F
-    priz\u0105 bei taip laimi \u017Eaidim\u0105. "
+    atitinkamai numpad esan\u010Diais klavi\u0161ais 8456."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87de660dfe2dc454aa4949918e616910, type: 2}
   m_sharedMaterial: {fileID: -1123596822903930411, guid: 87de660dfe2dc454aa4949918e616910,
@@ -297,7 +293,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 272
+  m_textAlignment: 264
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1287,7 +1283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BLA BLA BLA CREDITS
+  m_text: UNITY 2019
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 87de660dfe2dc454aa4949918e616910, type: 2}
   m_sharedMaterial: {fileID: -1123596822903930411, guid: 87de660dfe2dc454aa4949918e616910,
@@ -1323,7 +1319,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 272
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
